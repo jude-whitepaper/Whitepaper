@@ -1,97 +1,419 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PM Portfolio | Profile</title>
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --text-dark: #1f2937;
-            --text-gray: #4b5563;
-            --bg-light: #f9fafb;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.7;
-            color: var(--text-dark);
-            margin: 0;
-            background-color: var(--bg-light);
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        header {
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 20px;
-            margin-bottom: 40px;
-        }
-        h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        .quote {
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        section {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-        h2 {
-            font-size: 1.5rem;
-            border-left: 4px solid var(--primary-color);
-            padding-left: 15px;
-            margin-bottom: 20px;
-        }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 12px; color: var(--text-gray); }
-        p { color: var(--text-gray); margin-bottom: 15px; }
-        .highlight { font-weight: bold; color: var(--text-dark); }
-        
-        @media (max-width: 600px) {
-            h1 { font-size: 1.8rem; }
-            section { padding: 20px; }
-        }
-    </style>
+<html lang="ko"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JH | Product Manager</title>
+  <meta name="description" content="Product Manager / Product Owner CV website">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121935;
+      --panel-2: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --brand: #1d4ed8;
+      --brand-soft: #dbeafe;
+      --hero-text: #eef2ff;
+      --hero-muted: #c7d2fe;
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+      color: var(--text);
+      background: #f8fafc;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .hero {
+      background: linear-gradient(135deg, #0b1020 0%, #172554 55%, #1e3a8a 100%);
+      color: var(--hero-text);
+      padding: 56px 0 42px;
+    }
+    .topnav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+      font-size: 14px;
+      color: var(--hero-muted);
+    }
+    .topnav a {
+      text-decoration: none;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+    }
+    .headline {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 24px;
+      align-items: end;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #bfdbfe;
+      margin-bottom: 12px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+    }
+    .hero p {
+      margin: 0;
+      color: var(--hero-muted);
+      font-size: 17px;
+      max-width: 760px;
+    }
+    .hero-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 20px;
+      backdrop-filter: blur(6px);
+    }
+    .hero-card strong {
+      display: block;
+      font-size: 13px;
+      color: #bfdbfe;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .hero-card .value {
+      font-size: 15px;
+      color: #f8fafc;
+    }
+    .hero-grid {
+      display: grid;
+      gap: 14px;
+    }
+    main { padding: 28px 0 56px; }
+    section {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      margin-top: 18px;
+      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.04);
+    }
+    h2 {
+      margin: 0 0 18px;
+      font-size: 24px;
+      letter-spacing: -0.02em;
+    }
+    .kicker {
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .summary-grid,
+    .impact-grid,
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      background: #fcfdff;
+      border-radius: 18px;
+      padding: 18px;
+    }
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+    .muted { color: var(--muted); }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      background: var(--brand-soft);
+      color: var(--brand);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .timeline { display: grid; gap: 16px; }
+    .timeline-item {
+      border-left: 3px solid #bfdbfe;
+      padding-left: 18px;
+    }
+    .timeline-item h3 { margin: 0 0 6px; font-size: 18px; }
+    .timeline-item .meta { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
+    ul { margin: 8px 0 0; padding-left: 20px; }
+    .footer {
+      color: var(--muted);
+      text-align: center;
+      padding: 28px 0 48px;
+      font-size: 14px;
+    }
+    @media (max-width: 820px) {
+      .headline,
+      .summary-grid,
+      .impact-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero { padding-top: 32px; }
+      section { padding: 22px; border-radius: 20px; }
+    }
+  </style>
 </head>
 <body>
+  <header class="hero">
+    <div class="wrap">
+      <nav class="topnav">
+        <a href="#about">About</a>
+        <a href="#strengths">Strengths</a>
+        <a href="#projects">Selected Work</a>
+        <a href="#career">Career</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-<div class="container">
-    <header>
-        <h1>Product Manager</h1>
-        <p class="quote">“고객 가치와 비즈니스 성장을 연결하는 프로덕트 매니저입니다.”</p>
-    </header>
-
-    <section>
-        <h2>Core Competencies</h2>
-        <ul>
-            <li><span class="highlight">요구사항 및 우선순위:</span> 효율적인 제품 개발 주도 및 전략적 로드맵 설정</li>
-            <li><span class="highlight">사용자 중심 설계:</span> UI/UX 정책 수립 및 고객 지향적 서비스 구현</li>
-            <li><span class="highlight">이해관계자 조율:</span> 원활한 소통을 통한 요구사항 최적화 및 협업</li>
-            <li><span class="highlight">팀 리딩 & Agile:</span> Scrum 방법론 기반의 팀 리빌딩 및 리소스 관리</li>
-            <li><span class="highlight">도메인 확장성:</span> 계정, 결제, CS, 백오피스 등 광범위한 비즈니스 경험</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Experience & Strengths</h2>
-        
-        <div style="margin-bottom: 25px;">
-            <p class="highlight">🤝 커뮤니케이션 및 기술적 이해</p>
-            <p>다양한 직군의 팀을 이끌며 서비스 정책 수립부터 아키텍처 의사결정 참여까지 폭넓은 경험을 쌓았습니다. 특히 기술 부채 관리와 개선 계획 수립을 통해 안정성과 성능을 동시에 향상시키는 전략적 사고에 능숙합니다.</p>
-        </div>
-
+      <div class="headline">
         <div>
-            <p class="highlight">📈 팀 리딩과 성과 관리</p>
-            <p>10년 이상의 팀장 경력을 바탕으로 조직의 목표를 수립하고 성과를 모니터링합니다. 구성원들이 공동의 목표를 향해 책임감을 느끼고 협력할 수 있는 환경을 조성하는 데 강점이 있습니다.</p>
+          <div class="eyebrow">CV Website</div>
+          <h1>Product Manager who connects customer value and business growth.</h1>
+          <p>
+            23년 이상의 경험을 바탕으로 계정, 결제, 고객지원, 백오피스, 운영 플랫폼 영역에서
+            제품 전략 수립, 로드맵 정의, 운영 구조 개선, 조직 리딩을 수행해 왔습니다.
+          </p>
         </div>
-    </section>
-</div>
+        <div class="hero-grid">
+          <div class="hero-card">
+            <strong>Current Focus</strong>
+            <div class="value">Platform strategy, product planning, operating model improvement</div>
+          </div>
+          <div class="hero-card">
+            <strong>Experience</strong>
+            <div class="value">23+ years · NCSoft 18+ years</div>
+          </div>
+          <div class="hero-card">
+            <strong>Core Domains</strong>
+            <div class="value">Account · Billing · Customer Support · Backoffice · Platform Product</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-</body>
-</html>
+  <main class="wrap">
+    <section id="about">
+      <div class="kicker">About</div>
+      <h2>소개</h2>
+      <div class="summary-grid">
+        <div class="card">
+          <h3>프로필</h3>
+          <p>
+            고객 가치와 비즈니스 성장을 연결하는 프로덕트 매니저입니다. 요구사항 분석과 우선순위 설정,
+            정책 수립, UI/UX 설계, 이해관계자 조율, 팀 운영을 통해 복잡한 플랫폼 제품을 실행 가능한 형태로 정리해 왔습니다.
+          </p>
+        </div>
+        <div class="card">
+          <h3>현재 역할</h3>
+          <p>
+            플랫폼 전략 수립과 로드맵 개발, 프로덕트 브로슈어 기획, 조직 목표 정렬과 성과 모니터링을 중심으로
+            플랫폼 센터 차원의 방향성과 실행 구조를 다루고 있습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="strengths">
+      <div class="kicker">Strengths</div>
+      <h2>핵심 강점</h2>
+      <div class="impact-grid">
+        <div class="card">
+          <h3>전략과 실행 연결</h3>
+          <p class="muted">중장기 전략, 제품 방향성, 조직 목표를 실제 프로젝트와 로드맵으로 연결합니다.</p>
+        </div>
+        <div class="card">
+          <h3>복잡한 요구사항 구조화</h3>
+          <p class="muted">다양한 이해관계자의 요구를 정리하고 우선순위를 설정해 실행 가능한 요구사항으로 구체화합니다.</p>
+        </div>
+        <div class="card">
+          <h3>플랫폼 운영 경험</h3>
+          <p class="muted">계정, 결제, 고객지원, 보안, 운영툴 등 폭넓은 서비스 도메인에서 개선과 고도화를 주도했습니다.</p>
+        </div>
+        <div class="card">
+          <h3>리더십과 협업</h3>
+          <p class="muted">팀 리빌딩, 리소스 관리, Agile/Scrum 기반 협업 운영으로 높은 팀 만족도와 성과를 추구합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="kicker">Selected Work</div>
+      <h2>주요 프로젝트</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>글로벌 플랫폼 통합</h3>
+          <div class="meta">2023 · Product Owner</div>
+          <ul>
+            <li>본사·지사 백오피스 인증/권한, 고객지원, SMS/Email 발송 시스템 통합 실행</li>
+            <li>운영 연속성과 시스템 관리 효율 증대를 목표로 통합 로드맵 및 실행 관리 주도</li>
+            <li>ZenDesk 이관, 인증 체계 일원화 등으로 비용 절감과 운영 효율 개선에 기여</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h3>크리에이터 후원 서비스 개발</h3>
+          <div class="meta">2023 · Product Owner / Product Manager</div>
+          <ul>
+            <li>후원 및 보상 구조를 통한 사업-유저-크리에이터 선순환 생태계 설계</li>
+            <li>MVP 정의, 우선순위 조정, 운영툴 기획을 포함해 프로젝트 전반 주도</li>
+            <li>유튜브 관심도 15% 상승, 생방송 및 VOD 콘텐츠 증가에 기여</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Market Place &amp; Wallet 서비스 구축</h3>
+          <div class="meta">2022~2023 · Product Manager</div>
+          <ul>
+            <li>게임 재화 보관·거래·전송이 가능한 마켓플레이스 및 월렛 서비스 기획</li>
+            <li>경매, 대여 등 확장 가능한 비즈니스 모델 검토와 서비스 방향 제안</li>
+            <li>NFT/디지털 자산 기반 신사업 대응을 위한 기반 기술 확보</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h3>글로벌 결제 서비스 개선 및 간편결제 도입</h3>
+          <div class="meta">2022 · Product Manager</div>
+          <ul>
+            <li>해외 결제수단 이중화와 PG 점유율 관리 구조 설계</li>
+            <li>국내 간편결제 연동과 제3자 결제 확장 가능 구조 마련</li>
+            <li>국내외 다양한 BM 대응을 위한 결제 운영체계 개선</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h3>글로벌 고객지원 웹 구축</h3>
+          <div class="meta">2021 · Project Manager / Product Manager</div>
+          <ul>
+            <li>다국어 및 글로벌 퍼블리싱을 고려한 고객지원 웹 구조로 개편</li>
+            <li>서비스 전략, 요구사항 정의, UI/UX 방향성, 로드맵 관리 수행</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h3>계정 기반 서비스 개편</h3>
+          <div class="meta">2019~2020 · Product Owner</div>
+          <ul>
+            <li>회원가입, 마이페이지, 계정/비밀번호 찾기 등 핵심 계정 경험 개선</li>
+            <li>반응형 웹 적용, FE-BE 분리, Web API 중심 구조 전환</li>
+            <li>레거시 API 호출 50% 감소로 구조 단순화와 운영 효율 향상에 기여</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="career">
+      <div class="kicker">Career</div>
+      <h2>경력 요약</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>NCSoft</h3>
+          <div class="meta">2006.10 ~ Present · 전략 기획 · Product Manager · Service Planning</div>
+          <ul>
+            <li>2024~현재: 플랫폼전략팀 팀장, 플랫폼 전략 및 로드맵 개발</li>
+            <li>2022~2023: 고객서비스플랫폼개발팀 팀장, 고객지원·백오피스·메시징 시스템 개발 관리</li>
+            <li>2020~2023: 서비스플랫폼프로덕션팀 팀장, 결제 및 대고객 서비스 기획·관리</li>
+            <li>2018~2020: AccountPlatform팀 팀장, 회원관리 시스템 및 계정 서비스 고도화</li>
+            <li>그 이전: 결제 서비스, UI/UX, 계정 정책, 보안 서비스 기획 및 운영</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <h3>Earlier Career</h3>
+          <div class="meta">2001 ~ 2006</div>
+          <ul>
+            <li>이모션 · 서비스 기획, 전략 기획</li>
+            <li>시노조익 · 서비스 기획</li>
+            <li>마우스닷컴 · 서비스 기획, 마케팅</li>
+            <li>점프넷 · 서비스 기획</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="kicker">Skills</div>
+      <h2>역량 및 전문성</h2>
+      <div class="chips">
+        <span class="chip">Product Strategy</span>
+        <span class="chip">Roadmap Planning</span>
+        <span class="chip">Backoffice Product</span>
+        <span class="chip">Billing / Payment</span>
+        <span class="chip">Account &amp; Identity</span>
+        <span class="chip">Customer Support Platform</span>
+        <span class="chip">Policy Design</span>
+        <span class="chip">UI/UX Planning</span>
+        <span class="chip">Stakeholder Alignment</span>
+        <span class="chip">Agile / Scrum</span>
+        <span class="chip">Project Management</span>
+        <span class="chip">Global Service Operations</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">Education &amp; Achievement</div>
+      <h2>학력 및 성과</h2>
+      <div class="info-grid">
+        <div class="card">
+          <h3>Education</h3>
+          <p>호남대학교 전기공학과 졸업 (1995.03 ~ 2004.08)</p>
+        </div>
+        <div class="card">
+          <h3>Achievement</h3>
+          <p>특허 출원: 공유 서비스 방법 및 이를 수행하기 위한 컴퓨팅 장치 (2019.09.19)</p>
+        </div>
+        <div class="card">
+          <h3>Professional Development</h3>
+          <p>PMP 자격취득 과정, 애자일/스크럼, JIRA 기반 프로젝트 관리, 리더십 관련 과정 수료</p>
+        </div>
+        <div class="card">
+          <h3>Language</h3>
+          <p>한국어 중심. 글로벌 협업 기반의 문서화 및 커뮤니케이션 경험 보유.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="kicker">Contact</div>
+      <h2>연락처</h2>
+      <div class="info-grid">
+        <div class="card">
+          <h3>Email</h3>
+          <p><a href="mailto:bjh.whitepaper@gmail.com">bjh.whitepaper@gmail.com</a></p>
+        </div>
+        <div class="card">
+          <h3>GitHub</h3>
+          <p><a href="https://github.com/jude-whitepaper" target="_blank" rel="noreferrer">github.com/jude-whitepaper</a></p>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:16px;">
+        공개 웹사이트에는 개인정보 보호를 위해 전화번호와 상세 주소를 제외했습니다.
+      </p>
+    </section>
+  </main>
+
+  <div class="wrap footer">
+    © 2026 JH. CV website built for GitHub Pages.
+  </div>
+
+
+</body></html>
